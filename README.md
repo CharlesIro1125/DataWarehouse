@@ -1,7 +1,7 @@
 ## The purpose of this database in the context of the startup, sparkify, and their analytical goals.
 
 <p> The analytical star schema </p>
-<img src="https://github.com/CharlesIro1125/DataWarehouse/blob/main/analyticSchema.png" alt="schema" width="590" height="390" />
+<img src="https://github.com/CharlesIro1125/DataWarehouse/blob/main/analyticSchema.png" alt="schema" width="590" height="400" />
 
 The database is a full dataset from the sparkify streaming site. To handle big data a redshift cluster deployed on amazon web service is used. The database is developed on a dataset in an aws S3 bucket. This dataset is transferred to a staging area in an aws redshift cluster with database capabilities. For an analytical process to be done on this dataset, dimension tables were created from the staging table. Since the redshift cluster has a massive parallel proccessing capability, it spins 4 nodes (cpu) to process this data. The analytical tables are developed with a star schema to provide information about the relations, like information about the users (dimUsers table) visiting the site, information about the artist (dimArtists table) for songs currently available, information about the songs (dimSongs table) currently available in the sparkify streaming site, information about the time (dimTimes table) showing event time of the users on the site and finally a fact table (songplay) to measure useful metrics on user preferences and business goals for the services provided by the streaming site.<br>
 
@@ -21,15 +21,15 @@ The ETL pipeline does an extraction of data (song_data and log_data) from an S3 
 
 - The redshift.py file first reads configuration variables from a configuration file (dwh.cfg).This redshift.py file contains a function that creates an identity and access management (iam) role using the aws account owner access key and secret key, and a function that creates a redshift cluster with thesame user authentication credentials and applies the created iam role to the cluster, and another function that uses an EC2 VPC (Virtual Private Cloud) to allow external communication to the redshift cluster. Finally, it writes the redshift endpoint and roleArn to the dwh.cfg configuration file.
  
--The drop_redshift.py file first reads configuration variables from a configuration file (dwh.cfg) and it has a main function that deletes the created redshift cluster and also detaches the role policy before deleting the role.
+- The drop_redshift.py file first reads configuration variables from a configuration file (dwh.cfg) and it has a main function that deletes the created redshift cluster and also detaches the role policy before deleting the role.
  
--The sql_queries.py file contains all the sql query for dropping pre-existing tables, creating required tables,coping data to redshift cluster, inserting data from staging tables into analytical tables. All the queries are assigned to variables and the variables are imported into the create_tables.py file and the etl.py file.
+- The sql_queries.py file contains all the sql query for dropping pre-existing tables, creating required tables,coping data to redshift cluster, inserting data from staging tables into analytical tables. All the queries are assigned to variables and the variables are imported into the create_tables.py file and the etl.py file.
 
--The create_table.py file contains function use to establish connection to the redshift cluster, drop all existing tables in the database and also create all required tables.Finally, it closes connection to the database.
+- The create_table.py file contains function use to establish connection to the redshift cluster, drop all existing tables in the database and also create all required tables.Finally, it closes connection to the database.
 
--The etl.py file contains function that extracts data from the S3 bucket and copies this data into a staging table in the redshift cluster, i.e the log_data and the song_data . And another function that extracts data from the staging table, transforms it and loads it into the created analytical tables in the database. Finally, it closes connection to the database.
+- The etl.py file contains function that extracts data from the S3 bucket and copies this data into a staging table in the redshift cluster, i.e the log_data and the song_data . And another function that extracts data from the staging table, transforms it and loads it into the created analytical tables in the database. Finally, it closes connection to the database.
 
--The dwh.cfg file contains configuration variables used in the files above
+- The dwh.cfg file contains configuration variables used in the files above
 
             
 ## How to run this python scripts
