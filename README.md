@@ -12,7 +12,7 @@ Various purposes can be obtained from this database, which are information on th
 
 ## The database schema design and ETL pipeline.
      
-The star schema is a setup of dimension tables and fact table. The dimension table provides information on 'WHO' (who are the users), 'WHAT' (what songs are clicked), 'WHEN' (what time the song was played), 'WHICH' (which artist owns the song) and the fact table utilises these information from the dimension tables to measure useful metrics on 'HOW' (how the services are utilised and how it can be improved or optimised).The tables also utilises a distribution and sorting key to speed up query request.<br>
+The star schema is a setup of dimension tables and fact table. The dimension table provides information on *WHO* (who are the users), 'WHAT' (what songs are clicked), 'WHEN' (what time the song was played), 'WHICH' (which artist owns the song) and the fact table utilises these information from the dimension tables to measure useful metrics on 'HOW' (how the services are utilised and how it can be improved or optimised).The tables also utilises a distribution and sorting key to speed up query request.<br>
 
 The ETL pipeline does an extraction of data (song_data and log_data) from an S3 bucket, and loads this data into a staging_events table and staging_songs table created in the redshift cluster, this data is further extracted, transformed and loaded to some dimension tables created for analytical purposes. Analytical process are then performed on the dimension tables.
  
@@ -36,7 +36,7 @@ The ETL pipeline does an extraction of data (song_data and log_data) from an S3 
 
 To run this script, first provide your aws access key and secret key to the dwh.cfg file, then run the redshift.py file to create the redshift cluster, then run the create_table.py file to initialise the database. This file should be run only once before the etl.py file, as it contains script to delete existing tables in the database.<br>
 After this, run the etl.py file to extract data from S3 bucket to redshift staging tables, and from staging tables to analytical tables. With this done, the analytical queries can be performed on the database to get operations insight.<br>
-** After the analytical queries, run the drop_redshift.py file to drop all aws resources.cost attach**
+**After the analytical queries, run the drop_redshift.py file to drop all aws resources.cost attach**
 
 ###  Example queries.The queries are executed on the test.ipynb folder. 
 
@@ -47,6 +47,7 @@ After this, run the etl.py file to extract data from S3 bucket to redshift stagi
                     group by artist_name,title order by number_of_users DESC LIMIT 10;
 ```
 <img src="https://github.com/CharlesIro1125/DataWarehouse/blob/main/query11.png" alt="result1" width="560" height="340" />
+
 > Are the users on paid plan or free plan?
 
 ```
@@ -54,7 +55,8 @@ After this, run the etl.py file to extract data from S3 bucket to redshift stagi
                JOIN dimArtists AS a ON (a.artist_id = s.artist_id) JOIN dimSongs AS g ON (g.song_id= s.song_id) \
                     group by level,artist_name,title order by number_of_users DESC LIMIT 10;
 ```            
-<img src="https://github.com/CharlesIro1125/DataWarehouse/blob/main/query22.png" alt="result2" width="560" height="340" />            
+<img src="https://github.com/CharlesIro1125/DataWarehouse/blob/main/query22.png" alt="result2" width="560" height="340" />     
+
 > What location has the highest users?
 
 ```
