@@ -1,7 +1,7 @@
 ## The purpose of this database in the context of the startup, sparkify, and their analytical goals.
 
 <p> The analytical star schema </p>
-<img src="https://github.com/CharlesIro1125/DataWarehouse/blob/main/analyticSchema.png" alt="schema" width="590" height="400" />
+<img src="https://github.com/CharlesIro1125/DataWarehouse/blob/main/analyticSchema.png" alt="schema" width="600" height="400" />
 
 The database is a full dataset from the sparkify streaming site. To handle big data a redshift cluster deployed on amazon web service is used. The database is developed on a dataset in an aws S3 bucket. This dataset is transferred to a staging area in an aws redshift cluster with database capabilities. For an analytical process to be done on this dataset, dimension tables were created from the staging table. Since the redshift cluster has a massive parallel proccessing capability, it spins 4 nodes (cpu) to process this data. The analytical tables are developed with a star schema to provide information about the relations, like information about the users (dimUsers table) visiting the site, information about the artist (dimArtists table) for songs currently available, information about the songs (dimSongs table) currently available in the sparkify streaming site, information about the time (dimTimes table) showing event time of the users on the site and finally a fact table (songplay) to measure useful metrics on user preferences and business goals for the services provided by the streaming site.<br>
 
@@ -46,7 +46,7 @@ After this, run the etl.py file to extract data from S3 bucket to redshift stagi
           ON (a.artist_id = s.artist_id) JOIN dimSongs AS g ON (g.song_id= s.song_id)\
                     group by artist_name,title order by number_of_users DESC LIMIT 10;
 ```
-<img src="https://github.com/CharlesIro1125/DataWarehouse/blob/main/query11.png" alt="result1" width="550" height="320" />
+<img src="https://github.com/CharlesIro1125/DataWarehouse/blob/main/query11.png" alt="result1" width="560" height="340" />
 > Are the users on paid plan or free plan?
 
 ```
@@ -54,14 +54,14 @@ After this, run the etl.py file to extract data from S3 bucket to redshift stagi
                JOIN dimArtists AS a ON (a.artist_id = s.artist_id) JOIN dimSongs AS g ON (g.song_id= s.song_id) \
                     group by level,artist_name,title order by number_of_users DESC LIMIT 10;
 ```            
-<img src="https://github.com/CharlesIro1125/DataWarehouse/blob/main/query22.png" alt="result2" width="550" height="320" />            
+<img src="https://github.com/CharlesIro1125/DataWarehouse/blob/main/query22.png" alt="result2" width="560" height="340" />            
 > What location has the highest users?
 
 ```
     %sql SELECT level AS user_level, location, count(DISTINCT(userId)) AS number_of_users FROM songplay \
         group by level,location order by number_of_users DESC LIMIT 10;
 ```            
-<img src="https://github.com/CharlesIro1125/DataWarehouse/blob/main/query33.png" alt="result3" width="550" height="320" />        
+<img src="https://github.com/CharlesIro1125/DataWarehouse/blob/main/query33.png" alt="result3" width="560" height="340" />        
 
 
             
