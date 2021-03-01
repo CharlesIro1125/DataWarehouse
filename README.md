@@ -12,7 +12,7 @@ Various purposes can be obtained from this database, which are information on th
 
 ## The database schema design and ETL pipeline.
      
-The star schema is a setup of dimension tables and fact table. The dimension table provides information on *WHO* (who are the users), 'WHAT' (what songs are clicked), 'WHEN' (what time the song was played), 'WHICH' (which artist owns the song) and the fact table utilises these information from the dimension tables to measure useful metrics on 'HOW' (how the services are utilised and how it can be improved or optimised).The tables also utilises a distribution and sorting key to speed up query request.<br>
+The star schema is a setup of dimension tables and fact table. The dimension table provides information on *WHO* (who are the users), *WHAT* (what songs are clicked), *WHEN* (what time the song was played), *WHICH* (which artist owns the song) and the fact table utilises these information from the dimension tables to measure useful metrics on *HOW* (how the services are utilised and how it can be improved or optimised).The tables also utilises a distribution and sorting key to speed up query request.<br>
 
 The ETL pipeline does an extraction of data (song_data and log_data) from an S3 bucket, and loads this data into a staging_events table and staging_songs table created in the redshift cluster, this data is further extracted, transformed and loaded to some dimension tables created for analytical purposes. Analytical process are then performed on the dimension tables.
  
