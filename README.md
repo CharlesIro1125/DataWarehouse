@@ -49,21 +49,21 @@ After this, run the etl.py file to extract data from S3 bucket to redshift stagi
           ON (a.artist_id = s.artist_id) JOIN dimSongs AS g ON (g.song_id= s.song_id)\
                     group by artist_name,title order by number_of_users DESC LIMIT 10;
 ```
-     <img src="https://github.com/CharlesIro1125/DataWarehouse/blob/main/analyticSchema.png" alt="schema" width="600" height="400" />
+     <img src="https://github.com/CharlesIro1125/DataWarehouse/blob/main/query11.png" alt="schema" width="600" height="400" />
 > Are the users on paid plan or free plan?
 
 ```
   %sql SELECT level AS user_level, a.artist_name, g.title, count(DISTINCT(s.userId)) AS number_of_users FROM songplay AS s \               JOIN dimArtists AS a ON (a.artist_id = s.artist_id) JOIN dimSongs AS g ON (g.song_id= s.song_id) \
                     group by level,artist_name,title order by number_of_users DESC LIMIT 10;
 ```            
-     <img src="https://github.com/CharlesIro1125/DataWarehouse/blob/main/analyticSchema.png" alt="schema" width="600" height="400" />            
+     <img src="https://github.com/CharlesIro1125/DataWarehouse/blob/main/query22.png" alt="schema" width="600" height="400" />            
 > What location has the highest users?
 
 ```
     %sql SELECT level AS user_level, location, count(DISTINCT(userId)) AS number_of_users FROM songplay \
         group by level,location order by number_of_users DESC LIMIT 10;
 ```            
-    <img src="https://github.com/CharlesIro1125/DataWarehouse/blob/main/analyticSchema.png" alt="schema" width="600" height="400" />        
+    <img src="https://github.com/CharlesIro1125/DataWarehouse/blob/main/query33.png" alt="schema" width="600" height="400" />        
 
 
             
