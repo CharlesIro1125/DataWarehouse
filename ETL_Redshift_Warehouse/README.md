@@ -29,14 +29,18 @@ The ETL pipeline does an extraction of data (song_data and log_data) from an S3 
 
 - The etl.py file contains function that extracts data from the S3 bucket and copies this data into a staging table in the redshift cluster, i.e the log_data and the song_data . And another function that extracts data from the staging table, transforms it and loads it into the created analytical tables in the database. Finally, it closes connection to the database.
 
+- The etl.ipynb and etl2.ipynb files are the step-by-step process in preparing the etl.py file.
+
 - The dwh.cfg file contains configuration variables used in the files above
 
+- The test.ipynb file contains some example queries done on the database to provide analytical insight on the user operation on the sparkify music app.
             
 ## How to run this python scripts
 
 To run this script, first provide your aws access key and secret key to the dwh.cfg file, then run the redshift.py file to create the redshift cluster, then run the create_table.py file to initialise the database. This file should be run only once before the etl.py file, as it contains script to delete existing tables in the database.<br>
-After this, run the etl.py file to extract data from S3 bucket to redshift staging tables, and from staging tables to analytical tables. With this done, the analytical queries can be performed on the database to get operations insight.<br>
+After this, run the etl.py file to extract data from S3 bucket to redshift staging tables, and from staging tables to analytical tables. With this done, the analytical queries can be performed on the database to get operations insight. The test.ipynb file can be use for more analytical queries on the database.<br>
 **After the analytical queries, run the drop_redshift.py file to drop all aws resources.cost attach**
+
 
 ###  Example queries.The queries are executed on the test.ipynb folder. 
 
