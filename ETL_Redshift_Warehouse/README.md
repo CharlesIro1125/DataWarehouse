@@ -46,7 +46,7 @@ After this, run the etl.py file to extract data from S3 bucket to redshift stagi
           ON (a.artist_id = s.artist_id) JOIN dimSongs AS g ON (g.song_id= s.song_id)\
                     group by artist_name,title order by number_of_users DESC LIMIT 10;
 ```
-<img src="https://github.com/CharlesIro1125/DataWarehouse/blob/main/query11.png" alt="result1" width="560" height="360" />
+<img src="https://github.com/CharlesIro1125/DataWarehouse/blob/master/ETL_Redshift_Warehouse/query11.png" alt="result1" width="560" height="360" />
 
 > Are the users on paid plan or free plan?
 
