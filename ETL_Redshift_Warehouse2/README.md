@@ -1,7 +1,7 @@
 ## The purpose of this database in the context of the startup, sparkify, and their analytical goals.
 
 <p> The analytical star schema </p>
-<img src="https://github.com/CharlesIro1125/DataWarehouse/blob/main/Schemaproject1pic.png" alt="schema" width="600" height="420" />
+<img src="ETL_Redshift_Warehouse2/Schemaproject1pic.png" alt="schema" width="600" height="420" />
 
 The database is a full dataset from the sparkify streaming site. To handle big data a redshift cluster deployed on amazon web service is used. The database is developed on a dataset in an aws S3 bucket. This dataset is transferred to a staging area in an aws redshift cluster with database capabilities. For an analytical process to be done on this dataset, dimension tables were created from the staging table. Since the redshift cluster has a massive parallel proccessing capability, it spins 4 nodes (cpu) to process this data. The analytical tables are developed with a star schema to provide information about the relations, like information about the users (dimUsers table) visiting the site, information about the artist (dimArtists table) for songs currently available, information about the songs (dimSongs table) currently available in the sparkify streaming site, information about the time (dimTimes table) showing event time of the users on the site and finally a fact table (songplay) to measure useful metrics on user preferences and business goals for the services provided by the streaming site.<br>
 
