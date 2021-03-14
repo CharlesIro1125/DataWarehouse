@@ -63,7 +63,7 @@ After this, run the etl.py file to extract data from S3 bucket to redshift stagi
     %sql SELECT level AS user_level, location, count(DISTINCT(userId)) AS number_of_users FROM songplay \
         group by level,location order by number_of_users DESC LIMIT 10;
 ```            
-<img src="https://github.com/CharlesIro1125/DataWarehouse/blob/main/query33.png" alt="result3" width="560" height="360" />        
+<img src="https://github.com/CharlesIro1125/DataWarehouse/blob/master/ETL_Redshift_Warehouse2/query33.png" alt="result3" width="560" height="360" />        
 
 
             
