@@ -27,7 +27,7 @@ def create_spark_session():
             package/utility and returns the instance of the spark session.
         
         Returns:
-            spark : spark seessin
+            spark : spark session
     
     """
     
@@ -57,7 +57,7 @@ def data_reader(input_data, spark):
     """
     
     print('reading log data from s3 bucket')
-    log_data = os.path.join(input_data,'log_data/*/*/*.json')
+    log_data = os.path.join(input_bucket,'log_data/*/*/*.json')
     logdf = spark.read.json(log_data)
     print('reading log data completed')
     
@@ -65,7 +65,7 @@ def data_reader(input_data, spark):
               
    
     print('reading song data from s3 bucket')      
-    song_data = os.path.join(input_data,'song_data/A/A/*/*.json')
+    song_data = os.path.join(input_bucket,'song_data/A/A/*/*.json')
     songdf = spark.read.json(song_data)
     print('reading song data completed')
     
@@ -74,7 +74,7 @@ def data_reader(input_data, spark):
     
     
 
-def process_song_data(spark, songdf, output_data):
+def process_song_data(spark, songdf, output_bucket):
     """
         Description: 
         
@@ -103,7 +103,7 @@ def process_song_data(spark, songdf, output_data):
     # write songs table to parquet files partitioned by year and artist
     try:
         print("writing Song table to s3 bucket")
-        dimSongs.write.mode("overwrite").partitionBy("year","artist_id").parquet(os.path.join(output_data,"dimSongs"))
+        dimSongs.write.mode("overwrite").partitionBy("year","artist_id").parquet(os.path.join(output_bucket,"dimSongs"))
         print("writing Song table completed")
     except:
         print('unable to write Song table')
@@ -117,12 +117,12 @@ def process_song_data(spark, songdf, output_data):
     # write artists table to parquet files
     try:
         print("writing artist table to s3 bucket") 
-        dimArtists.write.mode("overwrite").parquet(os.path.join(output_data,"dimArtist"))
+        dimArtists.write.mode("overwrite").parquet(os.path.join(output_bucket,"dimArtist"))
         print("writing artist table completed")
     except:
         print('unable to write artist table')
 
-def process_log_data(spark, output_data, logdf, songdf):
+def process_log_data(spark, output_bucket, logdf, songdf):
     
     """
        Description: 
@@ -159,7 +159,7 @@ def process_log_data(spark, output_data, logdf, songdf):
     # write users table to parquet files
     try:
         print("writing Users table to s3 bucket") 
-        dimUsers.write.mode("overwrite").parquet(os.path.join(output_data,"dimUsers"))
+        dimUsers.write.mode("overwrite").parquet(os.path.join(output_bucket,"dimUsers"))
         print("writing Users table completed")
     except:
         print('unable to write Users table')
@@ -174,12 +174,12 @@ def process_log_data(spark, output_data, logdf, songdf):
     # write time table to parquet files partitioned by year and month
     try:
         print("writing Time table to s3 bucket")
-        dimTime.write.mode("overwrite").partitionBy("year","month").parquet(os.path.join(output_data,"dimTIme"))
+        dimTime.write.mode("overwrite").partitionBy("year","month").parquet(os.path.join(output_bucket,"dimTIme"))
         print("writing Time table completed")
     except:
         print('unable to write Time table')
 
-    # read in song data to use for songplays table
+    # creates a temporary view for songplays table
     songdf.createOrReplaceTempView('SongView')
 
     # extract columns from joined song and log datasets to create songplays table 
@@ -193,7 +193,7 @@ def process_log_data(spark, output_data, logdf, songdf):
     # write songplays table to parquet files partitioned by year and month
     try:
         print("writing Songplay table to s3 bucket")
-        Songplay.write.mode("overwrite").partitionBy("year","month").parquet(os.path.join(output_data,"Songplay"))
+        Songplay.write.mode("overwrite").partitionBy("year","month").parquet(os.path.join(output_bucket,"Songplay"))
         print("writing Songplay table completed")
     except:
         print('unable to write Songplay table')
@@ -208,14 +208,14 @@ def main():
     """
     
     
-    input_data = "s3a://udacity-dend/"
-    output_data = "s3a://charles-sink/"
+    input_bucket = "s3a://udacity-dend/"
+    output_bucket = "s3a://charles-sink/"
     spark = create_spark_session()
     
-    logdf, songdf = data_reader(input_data, spark)
+    logdf, songdf = data_reader(input_bucket, spark)
     
-    process_song_data(spark, songdf, output_data)
-    process_log_data(spark, output_data, logdf, songdf)
+    process_song_data(spark, songdf, output_bucket)
+    process_log_data(spark, output_bucket, logdf, songdf)
         
     
 

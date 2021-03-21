@@ -11,8 +11,8 @@ def process_song_file(cur, datapath):
     """
         Description: 
         
-            this function is responsible for reading data from each 
-            file of the song_data directory and performing the required 
+            this function reads data from each 
+            file of the song_data directory and performs the required 
             transformation on the data before loading the data into the 
             created dimSongs table and dimArtists table.
               
@@ -51,8 +51,8 @@ def process_log_file(cur, datapath):
     """
         Description: 
         
-            this function is responsible for reading data from each 
-            file of the log_data directory and performing the required 
+            this function reads data from each 
+            file of the log_data directory and performs the required 
             transformation on the data before loading the data into the 
             created dimUsers table, dimTimes table, and songplay table.
         
@@ -117,8 +117,8 @@ def process_data(cur, conn, filepath, func):
     """
         Description:
         
-            this function is responsible for extracting files from 
-            the song_data and log_data directory and passing this
+            this function extracts files from 
+            the song_data and log_data directory and passes this
             files to the process_song_file and process_log_file functions.
             and then commits the changes to the database
         
@@ -172,7 +172,7 @@ def main():
     
 try:
     
-    conn = psycopg2.connect("host=127.0.0.1 dbname=sparkifydb user=student password=student")
+    conn = psycopg2.connect("host=****** dbname=******* user=****** password=*****")
     cur = conn.cursor()
 
 except Exception as e:

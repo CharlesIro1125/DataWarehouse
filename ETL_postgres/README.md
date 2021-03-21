@@ -30,12 +30,12 @@ The etl.ipynb file is a jupyter notebook showing the step-by-step preparation of
 
 The describe.ipynb file shows the content of each file from the source directories.
 
-The test.ipynb file contains some example queries done on the database to provide analytical insight on the user operation on the sparkify music app.
+
             
 ### How to run this python scripts
 
 To run this script, first run the create_table.py file to initialise the database. This should be run only once before the etl.py file, as it contains script to delete existing tables in the database.
-After this, the etl.py file can be run to extract file from the source directory, transform the data and loads it into the database. With this done, the analytical queries can be performed on the database to get operational insight. The test.ipynb file can be used for more analytical queries on the database.
+After this, the etl.py file can be run to extract file from the source directory, transform the data and loads it into the database. With this done, the analytical queries can be performed on the database to get operational insight.
 
  
 
