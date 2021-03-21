@@ -1,7 +1,7 @@
 ## The purpose of this database in the context of the startup, sparkify, and their analytical goals.
 
 <p> The analytical star schema </p>
-<img src="https://github.com/CharlesIro1125/DataWarehouse/blob/master/ETL_Redshift_Warehouse2/analyticSchema.png" alt="schema" width="600" height="420" />
+<img src="https://github.com/CharlesIro1125/DataWarehouse/blob/master/ETL_Spark_DataLake/analyticSchema.png" alt="schema" width="600" height="420" />
 
 
 This is a datalake that eliminates the need for creating a database table and inserting data into it. The datalake reads dataset from AWS S3 bucket using the pyspark library and transforms the data before loading it back to an S3 bucket as a partitioned parquet file. The datalake technique makes handling unstructured and structured data easier and this resulting tables can be saved in an S3 bucket to be used for analytical queries when required. The parquet file uses columnar storage and each partition is dedicated to a folder, making it easy to query a specific partition without loading the whole data<br>
