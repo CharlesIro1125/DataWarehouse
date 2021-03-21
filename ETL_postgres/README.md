@@ -1,7 +1,7 @@
 ## The purpose of this database in the context of the startup, sparkify, and their analytical goals.
 
 <p> The analytical star schema </p>
-<img src="https://github.com/CharlesIro1125/DataWarehouse/blob/master/ETL_Redshift_Warehouse2/analyticSchema.png" alt="schema" width="600" height="420" />
+<img src="https://github.com/CharlesIro1125/DataWarehouse/blob/master/ETL_postgres/analyticSchema.png" alt="schema" width="600" height="420" />
 
 The database utilises the star schema to provide information about the relations, like information about the users (dimUsers table) visiting the site, information about the artist (dimArtists table) for songs currently available, information about the songs (dimSongs table) currently available in the sparkify streaming site, information about the time (dimTimes table) showing event time of the users on the site and finally a fact table (songplay) to measure useful metrics on user preferences and business goals for the services provided by the streaming site.
 
