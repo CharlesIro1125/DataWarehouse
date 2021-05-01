@@ -1,4 +1,4 @@
-## The purpose of this database in the context of the startup, sparkify, and their analytical goals.
+## The purpose of this database in the context of the startup sparkify and their analytical goals.
 
 <p> The analytical star schema </p>
 <img src="https://github.com/CharlesIro1125/DataWarehouse/blob/master/ETL_postgres/analyticSchema.png" alt="schema" width="600" height="420" />
