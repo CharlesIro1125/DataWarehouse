@@ -21,7 +21,8 @@ an S3 location. The redshift cluster needs a structured data for its schema deve
 spark to process any instructured or semi structured data to a structured data.
 
 
-The Airflow_DataPipeline project [airflow pipeline](). Contains an automated process, that runs a spark job,
+## The Airflow_DataPipeline project [airflow pipeline](https://github.com/CharlesIro1125/DataWarehouse/tree/master/Airflow_DataPipeline/home/airflow).
+Contains an automated process, that runs a spark job,
 copies data from S3 to redshift, performs the schema development in redshift for the analytical tables 
 and finally does some quality checks on the tables to verify completeness of record, record validity and 
 integrity constraint. The code also does some back filling and copies the data in partitions from S3 to 
