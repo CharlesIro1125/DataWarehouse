@@ -16,7 +16,7 @@ The Analytical Data model contains a fact table of the event, which is arrriving
 
 ## Files in the repository
 
-- The Capstone Project Template.ipynb files contains all the processing done, the exploration of data, model development, pipelines, data quality checks and project write.
+- The Capstone Project Template.ipynb files contains all the processing done, the exploration of data, model development, pipelines, data quality checks and project write-up.
 
 - The start_redshift.py file first reads configuration variables from a configuration file (dl.cfg).This start_redshift.py file contains a function that creates an identity and access management (iam) role using the aws account owner access key and secret key, and a function that creates a redshift cluster with thesame user authentication credentials and applies the created iam role to the cluster, and another function that uses an EC2 VPC (Virtual Private Cloud) to allow external communication to the redshift cluster. Finally, it writes the redshift endpoint and roleArn to the dl.cfg configuration file.
  
