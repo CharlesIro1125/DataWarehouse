@@ -36,8 +36,3 @@ dataset of arrivals into USA. The project is the final project that test your ab
 process with any tools of your choice and develope an analytical schema based on your chosen aim for the analytical
 warehouse.
  
-
-
-ETL pipelines for various Data Warehouse project.
-
-Detailed description for each project can be seen in the project folder
