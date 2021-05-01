@@ -1,5 +1,5 @@
 # Data Engineering
-# The Projects in this repostory contains various projects done within the Udacity Data Engineering nanodegree.
+# The Projects in this repository contains various projects done within the Udacity Data Engineering nanodegree.
 
 ## The ETL_Postgres project [ETL_Postgres](https://github.com/CharlesIro1125/DataWarehouse/tree/master/ETL_postgres). 
 This project contains an extract, transform and load process to a Postgre Database.
