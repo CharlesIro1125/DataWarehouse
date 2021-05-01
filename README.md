@@ -9,10 +9,11 @@ a star schema for analytical processing. All scripts required for the ETL proces
 found in the ETL_Postgres project repository.
 
 
-The ETL_Redshift_Warehouse project [redshift warehouse](). Contains a redshift cluster launched using 
-infrastructure as code with an IAM permission to read data from an S3 bucket,then load the data 
-on a staging area in redshift and perform an analytical model development. All scripts required to 
-launch the cluster using infrastructure as code and perform the analytical processses can be found in the 
+## The ETL_Redshift_Warehouse project [redshift warehouse](https://github.com/CharlesIro1125/DataWarehouse/tree/master/ETL_Redshift_Warehouse). 
+This project contains a redshift cluster launched using infrastructure as code with an 
+IAM permission to read data from an S3 bucket,then load the data on a staging area in 
+redshift and perform an analytical model development. All scripts required to launch the 
+cluster using infrastructure as code and perform the analytical processses can be found in the 
 ETL_Redshift_Warehouse repository.
 
 The ETL_Spark_Datalake project [spark datalake](). Contains a spark cluster that reads-in data 
