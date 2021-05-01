@@ -3,7 +3,7 @@
 
 ## The ETL_Postgres project [ETL_Postgres project](https://github.com/CharlesIro1125/DataWarehouse/tree/master/ETL_postgres). 
 This project contains an extract, transform and load process to a Postgre Database.
-Data from Sparkify streaming app of song logs and song play [Source data]() was used to model
+Data from Sparkify streaming app of song logs and song play [Source data](https://github.com/CharlesIro1125/DataWarehouse/blob/master/ETL_postgres/describe.ipynb) was used to model
 a star schema for analytical processing. All scripts required for the ETL process can be 
 found in the ETL_Postgres project repository.
 
