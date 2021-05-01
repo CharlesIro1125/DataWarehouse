@@ -8,6 +8,12 @@ a star schema for analytical processing. All scripts required for the ETL proces
 found in the ETL_Postgres project repository.
 
 ## The ETL_cassandra project [ETL_cassandra] (https://github.com/CharlesIro1125/DataWarehouse/tree/master/ETL_cassandra)
+This project contains an extract, transform and load process to a Cassandra Database.
+the schema used was designed base on the queries to be performed.
+A cassandra database is not efficient for join operations, so the database schema is design 
+to suit the query to be performed on the database. its a query dependent database 
+for handling big data.
+
 ## The ETL_Redshift_Warehouse project [redshift warehouse](https://github.com/CharlesIro1125/DataWarehouse/tree/master/ETL_Redshift_Warehouse). 
 This project contains a redshift cluster launched using infrastructure as code with an 
 IAM permission to read data from an S3 bucket,then load the data on a staging area in 
