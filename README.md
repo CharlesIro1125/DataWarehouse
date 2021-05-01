@@ -1,7 +1,7 @@
 # Data Engineering
 # The Projects in this repostory contains various projects done within the Udacity Data Engineering nanodegree.
 
-## The ETL_Postgres project [ETL_Postgres project](https://github.com/CharlesIro1125/DataWarehouse/tree/master/ETL_postgres). 
+## The ETL_Postgres project [ETL_Postgres](https://github.com/CharlesIro1125/DataWarehouse/tree/master/ETL_postgres). 
 This project contains an extract, transform and load process to a Postgre Database.
 Data from Sparkify streaming app of song logs and song play [Source data](https://github.com/CharlesIro1125/DataWarehouse/blob/master/ETL_postgres/describe.ipynb) was used to model
 a star schema for analytical processing. All scripts required for the ETL process can be 
@@ -32,8 +32,8 @@ redshift. All scripts can be found in the Airflow_DataPipeline repository.
 
 ## The Capstone project  [capstone project](https://github.com/CharlesIro1125/DataWarehouse/tree/master/CapstoneProject).
 This project contains four different dataset including the USA I-94 immigration 
-dataset of arrivals into USA. This project is the final project that test your ability to build a full analytical
-process with any tools of your choice and develope an analytical schema based on your chosen aim for this analytical
+dataset of arrivals into USA. The project is the final project that test your ability to build a full analytical
+process with any tools of your choice and develope an analytical schema based on your chosen aim for the analytical
 warehouse.
  
 
