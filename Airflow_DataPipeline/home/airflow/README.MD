@@ -1,6 +1,6 @@
 
 
-<p> Dag (Directional Acyclic Graph </p>
+<p> Dag (Directional Acyclic Graph) </p>
 <p> Various individual task seen in the figure were scheduled and executed with a dag .</p>
 <p> Graphical view.</p>
 <img src="https://github.com/CharlesIro1125/DataWarehouse/blob/master/Airflow_DataPipeline/home/airflow/dag1.png" alt="schema" width="650" height="420" />
