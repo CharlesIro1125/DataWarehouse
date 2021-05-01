@@ -16,10 +16,11 @@ redshift and perform an analytical model development. All scripts required to la
 cluster using infrastructure as code and perform the analytical processses can be found in the 
 ETL_Redshift_Warehouse repository.
 
-The ETL_Spark_Datalake project [spark datalake](). Contains a spark cluster that reads-in data 
-from an S3 bucket processses and transforms the data and finally saves it as a partitioned parquet file to 
-an S3 location. The redshift cluster needs a structured data for its schema development, Thus using 
-spark to process any instructured or semi structured data to a structured data.
+## The ETL_Spark_Datalake project  [spark datalake](https://github.com/CharlesIro1125/DataWarehouse/tree/master/ETL_Spark_DataLake).
+This project contains a spark cluster that reads-in data from an S3 bucket processses and transforms the
+data and finally saves it as a partitioned parquet file to an S3 location. The redshift cluster
+needs a structured data for its schema development, Thus using spark to process any instructured
+or semi structured data to a structured data.
 
 
 ## The Airflow_DataPipeline project  [airflow pipeline](https://github.com/CharlesIro1125/DataWarehouse/tree/master/Airflow_DataPipeline/home/airflow).
