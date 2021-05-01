@@ -7,7 +7,7 @@
 <p> A Tree view</p>
 <img src="https://github.com/CharlesIro1125/DataWarehouse/blob/master/Airflow_DataPipeline/home/airflow/dag2.png" alt="schema" width="780" height="420" />
 <p> Subdag : data_quality_check</p>
-<p> Task that are repeated are scheduled and executed with a subdag</P>
+<p> Task that are repeated like the data_quality_check were scheduled and executed with a subdag</P>
 <p> A Graphical view</p>
 <img src="https://github.com/CharlesIro1125/DataWarehouse/blob/master/Airflow_DataPipeline/home/airflow/sugdag2.png" alt="schema" width="650" height="420" />
 <p> A Tree view</p>
