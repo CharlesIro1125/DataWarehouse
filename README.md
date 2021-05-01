@@ -7,7 +7,7 @@ Data from Sparkify streaming app of song logs and song play [Source data](https:
 a star schema for analytical processing. All scripts required for the ETL process can be 
 found in the ETL_Postgres project repository.
 
-
+## The ETL_cassandra project [ETL_cassandra] (https://github.com/CharlesIro1125/DataWarehouse/tree/master/ETL_cassandra)
 ## The ETL_Redshift_Warehouse project [redshift warehouse](https://github.com/CharlesIro1125/DataWarehouse/tree/master/ETL_Redshift_Warehouse). 
 This project contains a redshift cluster launched using infrastructure as code with an 
 IAM permission to read data from an S3 bucket,then load the data on a staging area in 
