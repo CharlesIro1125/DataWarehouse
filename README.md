@@ -21,15 +21,16 @@ an S3 location. The redshift cluster needs a structured data for its schema deve
 spark to process any instructured or semi structured data to a structured data.
 
 
-## The Airflow_DataPipeline project [airflow pipeline](https://github.com/CharlesIro1125/DataWarehouse/tree/master/Airflow_DataPipeline/home/airflow).
-Contains an automated process, that runs a spark job,
+## The Airflow_DataPipeline project  [airflow pipeline](https://github.com/CharlesIro1125/DataWarehouse/tree/master/Airflow_DataPipeline/home/airflow).
+This project contains an automated process, that runs a spark job,
 copies data from S3 to redshift, performs the schema development in redshift for the analytical tables 
 and finally does some quality checks on the tables to verify completeness of record, record validity and 
 integrity constraint. The code also does some back filling and copies the data in partitions from S3 to 
 redshift. All scripts can be found in the Airflow_DataPipeline repository.
 
 
-The Capstone project [capstone project](). Contains four different dataset including the USA I-94 immigration 
+## The Capstone project  [capstone project](https://github.com/CharlesIro1125/DataWarehouse/tree/master/CapstoneProject).
+This project contains four different dataset including the USA I-94 immigration 
 dataset of arrivals into USA. This project is the final project that test your ability to build a full analytical
 process with any tools of your choice and develope an analytical schema based on your chosen aim for this analytical
 warehouse.
